@@ -1,6 +1,9 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
+
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
+
 const PORT = process.env.PORT || 5000;
 
 const router = require('./router')
@@ -15,18 +18,38 @@ io.on('connection', (socket) => {
     // receiving data from emit
     // sending callback function to client
     socket.on('join', ({ name, room }, callback) => {
-        console.log(name, room);
+        const { error, user } = addUser({ id: socket.id, name, room });
 
-        // const error = true;
+        if (error) return callback(error)
 
-        // if (error) {
-        //     callback({ error: 'error'})
-        // }
-    })
+        socket.emit('message', { user: 'admin', text: `Hello ${user.name.charAt(0).toUpperCase() + user.name.slice(1)}, Welcome to the room ${user.room.charAt(0).toUpperCase() + user.room.slice(1)}` });
+
+        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined`});
+
+        socket.join(user.room);
+
+        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+
+        callback();
+    });
+
+    // on is expecting an on event/emit
+    socket.on('sendMessage', (message, callback) => {
+        const user = getUser(socket.id);
+
+        io.to(user.room).emit('message', { user: user.name, text: message});
+        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+
+        callback();
+    });
 
     socket.on('disconnect', () => {
-        console.log('User had left!')
-    })
+        const user = removeUser(socket.id);
+
+        if (user) {
+            io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left` })
+        }
+    });
 })
 
 app.use(router)
