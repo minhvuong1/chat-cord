@@ -19,16 +19,12 @@
     align-items: center;
 }
 
-.textContainer .activeContainer img {
-    padding-left: 10px;
-}
-
 .textContainer h1 {
     margin-bottom: 40px;
     margin-top: -20px;
     font-size: 42px;
     padding-bottom: 15px;
-    color: white !important;
+    color: rgb(215, 167, 167);
     border-bottom: 1px solid white;
     text-align: center;
 }

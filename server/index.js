@@ -22,9 +22,9 @@ io.on('connection', (socket) => {
 
         if (error) return callback(error)
 
-        socket.emit('message', { user: 'admin', text: `Hello ${user.name.charAt(0).toUpperCase() + user.name.slice(1)}, Welcome to the room ${user.room.charAt(0).toUpperCase() + user.room.slice(1)}` });
+        socket.emit('message', { user: 'bot', text: `Hello ${user.name.charAt(0).toUpperCase() + user.name.slice(1)}, Welcome to the room ${user.room.charAt(0).toUpperCase() + user.room.slice(1)}` });
 
-        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined`});
+        socket.broadcast.to(user.room).emit('message', { user: 'bot', text: `${user.name} has joined`});
 
         socket.join(user.room);
 
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
         const user = removeUser(socket.id);
 
         if (user) {
-            io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left` })
+            io.to(user.room).emit('message', { user: 'bot', text: `${user.name} has left` })
         }
     });
 })

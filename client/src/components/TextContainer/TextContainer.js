@@ -7,11 +7,11 @@ const TextContainer = ({ users, room }) => {
   return (
     <div className="textContainer">
         <div>
-            <h1>Realtime Chat <br/> Application 
-                <span role="img" aria-label="emoji"></span>
-            </h1>
+            <h1>ChatCord <i className='far fa-smile' style={{fontSize: '36px'}}></i></h1>
             <p style={{fontSize: "20px", textAlign: "center"}}>Invite your friends to join room 
-                <b style={{color: "red"}}> {room.charAt(0).toUpperCase() + room.slice(1)}</b> !
+                <b style={{color: 'rgb(215, 167, 167)', paddingLeft: '10px'}}> 
+                    {room.charAt(0).toUpperCase() + room.slice(1)}
+                </b>!
             </p>
             <h2 style={{textAlign: "center"}}>OR</h2>
             <p style={{fontSize: "20px", textAlign: "center"}}>Join Another Room
