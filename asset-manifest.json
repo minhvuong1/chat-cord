@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/minhvuong1.github.io/chat-cord/static/css/main.84de2ae0.chunk.css",
+    "main.js": "/minhvuong1.github.io/chat-cord/static/js/main.b8d9d119.chunk.js",
+    "main.js.map": "/minhvuong1.github.io/chat-cord/static/js/main.b8d9d119.chunk.js.map",
+    "runtime-main.js": "/minhvuong1.github.io/chat-cord/static/js/runtime-main.a9f9b67f.js",
+    "runtime-main.js.map": "/minhvuong1.github.io/chat-cord/static/js/runtime-main.a9f9b67f.js.map",
+    "static/js/2.4107159a.chunk.js": "/minhvuong1.github.io/chat-cord/static/js/2.4107159a.chunk.js",
+    "static/js/2.4107159a.chunk.js.map": "/minhvuong1.github.io/chat-cord/static/js/2.4107159a.chunk.js.map",
+    "index.html": "/minhvuong1.github.io/chat-cord/index.html",
+    "precache-manifest.2cf34261a9cc50858a29728400f51688.js": "/minhvuong1.github.io/chat-cord/precache-manifest.2cf34261a9cc50858a29728400f51688.js",
+    "service-worker.js": "/minhvuong1.github.io/chat-cord/service-worker.js",
+    "static/css/main.84de2ae0.chunk.css.map": "/minhvuong1.github.io/chat-cord/static/css/main.84de2ae0.chunk.css.map",
+    "static/js/2.4107159a.chunk.js.LICENSE.txt": "/minhvuong1.github.io/chat-cord/static/js/2.4107159a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a9f9b67f.js",
+    "static/js/2.4107159a.chunk.js",
+    "static/css/main.84de2ae0.chunk.css",
+    "static/js/main.b8d9d119.chunk.js"
+  ]
+}
